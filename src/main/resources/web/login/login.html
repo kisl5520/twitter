@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Twitter Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/login.css'>
+    <script src='login.js'></script>
+</head>
+<body>
+    <form action="/user/login" method="post">
+        <span style="width: 70px; float: left;">用户名:</span>
+        <input id="user" name="username" type="text" class="form-control" placeholder="请输入用户名..."/><br>
+        <span style="width: 70px; float: left;">密码:</span>
+        <input name="psd" type="password" class="form-control" placeholder="请输入密码..."/> <br>
+        <input type="submit" value="登录">
+    </form>
+</body>
+</html>
