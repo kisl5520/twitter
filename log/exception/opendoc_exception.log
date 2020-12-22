@@ -1,0 +1,19 @@
+2020-12-23 00:00:21.735 -ERROR  [  restartedMain] LoggingFailureAnalysisReporter : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource' to com.alibaba.druid.pool.DruidDataSource:
+
+    Property: spring.datasource.filters
+    Value: stat,wall,log4j
+    Origin: class path resource [application.yml]:16:14
+    Reason: Unable to set value for property filters
+
+Action:
+
+Update your application's configuration
+
