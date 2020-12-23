@@ -4,3 +4,4 @@
 注册：/user/regist  
 登陆：/user/login
 
+- idea集成git
