@@ -2,9 +2,10 @@ package com.kisl.twitter.util;/**
  * Created by Administrator on 2020/12/22.
  */
 
-import com.kisl.twitter.enums.LogEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.kisl.twitter.types.LogEnum;
 
 /**
  * @author keyan

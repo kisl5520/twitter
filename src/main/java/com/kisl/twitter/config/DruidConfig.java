@@ -1,4 +1,4 @@
-package com.kisl.twitter.model;/**
+package com.kisl.twitter.config;/**
  * Created by Administrator on 2020/12/22.
  */
 

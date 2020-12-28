@@ -1,14 +1,18 @@
 package com.kisl.twitter.mapper;
 
-import com.kisl.twitter.model.User;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
+
+import com.kisl.twitter.model.User;
 
 /**
  * mapper的具体表达式
  */
-@Mapper //标记mapper文件位置，否则在Application.class启动类上配置mapper包扫描
 @Repository
+@Mapper
 public interface UserMapper {
 
     /**

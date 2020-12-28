@@ -1,4 +1,4 @@
-package com.kisl.twitter.enums;
+package com.kisl.twitter.types;
 
 /**
  * Created by Administrator on 2020/12/22.
