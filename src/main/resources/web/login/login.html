@@ -5,17 +5,17 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Twitter Login</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../css/login.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../res/css/login.css'>
     
 </head>
 <body>
-    <form action="/user/login" method="post">
-        <span style="width: 70px; float: left;">用户:</span>
-        <input id="user" name="username" type="text" class="form-control" placeholder="请输入用户名..."/><br>
-        <span style="width: 70px; float: left;">密码:</span>
-        <input name="password" type="password" class="form-control" placeholder="请输入密码..."/> <br>
-        <input type="submit" value="登录">
-    </form>
+    <div style="align-content: center; width: 100%;height: 60%;">
+        <input id="username" type="text" class="form-control" placeholder="请输入用户名..."/><br>
+        <input id="password" type="password" class="form-control" placeholder="请输入用户名..."/><br>
+        <input id="login" type="button" value="登录">
+        <input id="regist" type="button" value="注册">
+    </div>
+	<script src='../res/js/jquery.min.js'></script>
 	<script src='login.js'></script>
 </body>
 </html>

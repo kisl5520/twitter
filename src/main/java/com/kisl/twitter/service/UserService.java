@@ -27,7 +27,7 @@ public class UserService {
     public Result<Object> regist(User user) {
         final Result<Object> result = new Result<Object>();
         result.setSuccess(false);
-        result.setDetail(null);
+        result.setData(null);
         try {
             User existUser = userMapper.findUserByName(user.getUsername());
             if(existUser != null){
@@ -36,10 +36,9 @@ public class UserService {
                 log.info("用户名已存在");
             }else{
                 userMapper.regist(user);
-                log.info("用户唯一id："+user.getId().toString());
                 result.setMsg("注册成功");
                 result.setSuccess(true);
-                result.setDetail(user);
+                result.setData(user);
             }
         } catch (Exception e) {
             result.setMsg(e.getMessage());
@@ -55,7 +54,7 @@ public class UserService {
     public Result<Object> login(User user) {
         Result<Object> result = new Result<Object>();
         result.setSuccess(false);
-        result.setDetail(null);
+        result.setData(null);
         try {
             Long userId= userMapper.login(user);
             if(userId == null){
@@ -66,7 +65,7 @@ public class UserService {
                 result.setMsg("登录成功");
                 result.setSuccess(true);
                 user.setId(userId);
-                result.setDetail(user);
+                result.setData(user);
             }
         } catch (Exception e) {
             result.setMsg(e.getMessage());

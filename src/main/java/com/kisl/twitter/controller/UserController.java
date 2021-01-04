@@ -3,13 +3,15 @@ package com.kisl.twitter.controller;
 import com.kisl.twitter.model.Result;
 import com.kisl.twitter.model.User;
 import com.kisl.twitter.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
+@Api(value="UserController相关的api",tags={"用户操作接口"})
 /**
  * @author keyan.
  */
@@ -24,7 +26,8 @@ public class UserController {
      * @return Result
      */
     @PostMapping(value = "/regist")
-    public Result regist(User user){
+    @ApiOperation(value="用户注册",notes="用户注册")
+    public Result regist(@RequestBody @ApiParam(name="用户对象",value="传入json格式",required=true) User user){
         return userService.regist(user);
     }
 
@@ -34,7 +37,8 @@ public class UserController {
      * @return Result
      */
     @PostMapping(value = "/login")
-    public Result login(User user){
+    @ApiOperation(value="用户登录",notes="用户登录")
+    public Result login(@RequestBody @ApiParam(name="用户对象",value="传入json格式",required=true) User user){
         return userService.login(user);
     }
 }

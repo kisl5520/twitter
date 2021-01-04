@@ -2,6 +2,7 @@ server:
   port: 9001
   servlet:
     context-path: /
+
 spring:
   application:
     name: twitter
@@ -42,5 +43,8 @@ spring:
   resources:
     static-locations: classpath:/web  #访问静态页面
 
+  #是否激活 swagger true or false
+  swagger:
+    enable: true
 #  logging:
 #    config: calsspath:log4j2.yml
