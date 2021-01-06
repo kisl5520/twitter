@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kisl.twitter.mbg.mapper.TXtyhxxMapper">
+  <resultMap id="BaseResultMap" type="com.kisl.twitter.mbg.model.TXtyhxx">
+    <id column="GID" jdbcType="VARCHAR" property="gid" />
+    <result column="YHDM" jdbcType="INTEGER" property="yhdm" />
+    <result column="YHMC" jdbcType="VARCHAR" property="yhmc" />
+    <result column="XSMC" jdbcType="VARCHAR" property="xsmc" />
+    <result column="YHMM" jdbcType="VARCHAR" property="yhmm" />
+    <result column="JAVAMM" jdbcType="VARCHAR" property="javamm" />
+    <result column="CZLX" jdbcType="INTEGER" property="czlx" />
+    <result column="STOPED" jdbcType="INTEGER" property="stoped" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    GID, YHDM, YHMC, XSMC, YHMM, JAVAMM, CZLX, STOPED
+  </sql>
+  <select id="selectByExample" parameterType="com.kisl.twitter.mbg.model.TXtyhxxExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_xtyhxx
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_xtyhxx
+    where GID = #{gid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_xtyhxx
+    where GID = #{gid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kisl.twitter.mbg.model.TXtyhxxExample">
+    delete from t_xtyhxx
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kisl.twitter.mbg.model.TXtyhxx">
+    insert into t_xtyhxx (GID, YHDM, YHMC, 
+      XSMC, YHMM, JAVAMM, 
+      CZLX, STOPED)
+    values (#{gid,jdbcType=VARCHAR}, #{yhdm,jdbcType=INTEGER}, #{yhmc,jdbcType=VARCHAR}, 
+      #{xsmc,jdbcType=VARCHAR}, #{yhmm,jdbcType=VARCHAR}, #{javamm,jdbcType=VARCHAR}, 
+      #{czlx,jdbcType=INTEGER}, #{stoped,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kisl.twitter.mbg.model.TXtyhxx">
+    insert into t_xtyhxx
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="gid != null">
+        GID,
+      </if>
+      <if test="yhdm != null">
+        YHDM,
+      </if>
+      <if test="yhmc != null">
+        YHMC,
+      </if>
+      <if test="xsmc != null">
+        XSMC,
+      </if>
+      <if test="yhmm != null">
+        YHMM,
+      </if>
+      <if test="javamm != null">
+        JAVAMM,
+      </if>
+      <if test="czlx != null">
+        CZLX,
+      </if>
+      <if test="stoped != null">
+        STOPED,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="gid != null">
+        #{gid,jdbcType=VARCHAR},
+      </if>
+      <if test="yhdm != null">
+        #{yhdm,jdbcType=INTEGER},
+      </if>
+      <if test="yhmc != null">
+        #{yhmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xsmc != null">
+        #{xsmc,jdbcType=VARCHAR},
+      </if>
+      <if test="yhmm != null">
+        #{yhmm,jdbcType=VARCHAR},
+      </if>
+      <if test="javamm != null">
+        #{javamm,jdbcType=VARCHAR},
+      </if>
+      <if test="czlx != null">
+        #{czlx,jdbcType=INTEGER},
+      </if>
+      <if test="stoped != null">
+        #{stoped,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kisl.twitter.mbg.model.TXtyhxxExample" resultType="java.lang.Long">
+    select count(*) from t_xtyhxx
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_xtyhxx
+    <set>
+      <if test="record.gid != null">
+        GID = #{record.gid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yhdm != null">
+        YHDM = #{record.yhdm,jdbcType=INTEGER},
+      </if>
+      <if test="record.yhmc != null">
+        YHMC = #{record.yhmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xsmc != null">
+        XSMC = #{record.xsmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yhmm != null">
+        YHMM = #{record.yhmm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.javamm != null">
+        JAVAMM = #{record.javamm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.czlx != null">
+        CZLX = #{record.czlx,jdbcType=INTEGER},
+      </if>
+      <if test="record.stoped != null">
+        STOPED = #{record.stoped,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_xtyhxx
+    set GID = #{record.gid,jdbcType=VARCHAR},
+      YHDM = #{record.yhdm,jdbcType=INTEGER},
+      YHMC = #{record.yhmc,jdbcType=VARCHAR},
+      XSMC = #{record.xsmc,jdbcType=VARCHAR},
+      YHMM = #{record.yhmm,jdbcType=VARCHAR},
+      JAVAMM = #{record.javamm,jdbcType=VARCHAR},
+      CZLX = #{record.czlx,jdbcType=INTEGER},
+      STOPED = #{record.stoped,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kisl.twitter.mbg.model.TXtyhxx">
+    update t_xtyhxx
+    <set>
+      <if test="yhdm != null">
+        YHDM = #{yhdm,jdbcType=INTEGER},
+      </if>
+      <if test="yhmc != null">
+        YHMC = #{yhmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xsmc != null">
+        XSMC = #{xsmc,jdbcType=VARCHAR},
+      </if>
+      <if test="yhmm != null">
+        YHMM = #{yhmm,jdbcType=VARCHAR},
+      </if>
+      <if test="javamm != null">
+        JAVAMM = #{javamm,jdbcType=VARCHAR},
+      </if>
+      <if test="czlx != null">
+        CZLX = #{czlx,jdbcType=INTEGER},
+      </if>
+      <if test="stoped != null">
+        STOPED = #{stoped,jdbcType=INTEGER},
+      </if>
+    </set>
+    where GID = #{gid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kisl.twitter.mbg.model.TXtyhxx">
+    update t_xtyhxx
+    set YHDM = #{yhdm,jdbcType=INTEGER},
+      YHMC = #{yhmc,jdbcType=VARCHAR},
+      XSMC = #{xsmc,jdbcType=VARCHAR},
+      YHMM = #{yhmm,jdbcType=VARCHAR},
+      JAVAMM = #{javamm,jdbcType=VARCHAR},
+      CZLX = #{czlx,jdbcType=INTEGER},
+      STOPED = #{stoped,jdbcType=INTEGER}
+    where GID = #{gid,jdbcType=VARCHAR}
+  </update>
+</mapper>

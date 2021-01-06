@@ -7,10 +7,10 @@ spring:
   application:
     name: twitter
   datasource:
-    url: jdbc:mysql://localhost:3306/login?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/twitter?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
     password: 1234.abcd
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
     #监控统计拦截的filters，如果启用log4j记得添加依赖
@@ -40,11 +40,16 @@ spring:
           mergeSql: true
           slowSqlMillis: 5000
 
-  resources:
-    static-locations: classpath:/web  #访问静态页面
+resources:
+  static-locations: classpath:/web  #访问静态页面
 
-  #是否激活 swagger true or false
-  swagger:
-    enable: true
+#是否激活 swagger true or false
+swagger:
+  enable: true
 #  logging:
 #    config: calsspath:log4j2.yml
+
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*.xml
+    - classpath*:com/**/mapper/*.xml
