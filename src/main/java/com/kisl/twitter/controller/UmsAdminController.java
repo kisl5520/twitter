@@ -2,7 +2,9 @@ package com.kisl.twitter.controller;/**
  * Created by Administrator on 2021/1/6.
  */
 
+import com.kisl.twitter.dto.UmsAdminLoginParam;
 import com.kisl.twitter.mbg.model.UmsAdmin;
+import com.kisl.twitter.mbg.model.UmsPermission;
 import com.kisl.twitter.model.CommonResult;
 import com.kisl.twitter.service.UmsAdminService;
 import io.swagger.annotations.Api;
@@ -43,6 +45,28 @@ public class UmsAdminController {
             CommonResult.failed();
         }
         return CommonResult.success(umsAdmin);
+    }
+
+    @ApiOperation(value = "登录以后返回token")
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult login(@RequestBody UmsAdminLoginParam umsAdminLoginParam, BindingResult result) {
+        String token = adminService.login(umsAdminLoginParam.getUsername(), umsAdminLoginParam.getPassword());
+        if (token == null) {
+            return CommonResult.validateFailed("用户名或密码错误");
+        }
+        Map<String, String> tokenMap = new HashMap<>();
+        tokenMap.put("token", token);
+        tokenMap.put("tokenHead", tokenHead);
+        return CommonResult.success(tokenMap);
+    }
+
+    @ApiOperation("获取用户所有权限（包括+-权限）")
+    @RequestMapping(value = "/permission/{adminId}", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<List<UmsPermission>> getPermissionList(@PathVariable Long adminId) {
+        List<UmsPermission> permissionList = adminService.getPermissionList(adminId);
+        return CommonResult.success(permissionList);
     }
 
 }
