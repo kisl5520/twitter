@@ -30,7 +30,7 @@ import java.util.List;
 
 /**
  * @author keyan
- * @Descrition TODO
+ * @Descrition SecurityConfig
  * @Date 2021/1/7 21:19
  * @Version 1.0.0
  */
@@ -95,6 +95,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
+    @Override
     public UserDetailsService userDetailsService() {
         //获取登录用户信息
         return username -> {

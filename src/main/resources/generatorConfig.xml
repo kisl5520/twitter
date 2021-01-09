@@ -31,12 +31,12 @@
             <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
         <!--指定生成model的路径-->
-        <javaModelGenerator targetPackage="com.kisl.twitter.mbg.model" targetProject="F:\mywork\KISL\workspace\twitter\src\main\java"/>
+        <javaModelGenerator targetPackage="com.kisl.twitter.mbg.model" targetProject="src\main\java"/>
         <!--指定生成mapper.xml的路径-->
-        <sqlMapGenerator targetPackage="com.kisl.twitter.mbg.mapper" targetProject="F:\mywork\KISL\workspace\twitter\src\main\resources"/>
+        <sqlMapGenerator targetPackage="com.kisl.twitter.mbg.mapper" targetProject="src\main\resources"/>
         <!--指定生成mapper接口的的路径-->
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.kisl.twitter.mbg.mapper"
-                             targetProject="F:\mywork\KISL\workspace\twitter\src\main\java"/>
+                             targetProject="src\main\java"/>
         <!--生成全部表tableName设为%-->
         <table tableName="%">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
